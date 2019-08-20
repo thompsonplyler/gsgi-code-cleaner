@@ -33,13 +33,6 @@ let submitHandler= (e, form, textArea) => {
     textArea.value = div.outerHTML.replace(/<div>/g,"").replace(/<\/div>/g,"")
     console.log(div)
 
-
-    // newTextArea = document.createElement("textarea")
-    // newTextArea.innerHTML = div.outerHTML
-    // textArea.remove()
-    // form.append(newTextArea)
-
-
 }
 
 spanKiller = function(data){
@@ -80,9 +73,6 @@ let removeStyles = (data) => {
             if (e.tagName!=="IMG"){
                 e.removeAttribute('class')
                 e.removeAttribute('style')
-            }
-            else{
-                e.removeAttribute('class')
             }
             })
     })}
