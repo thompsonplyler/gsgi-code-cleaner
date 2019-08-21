@@ -30,7 +30,7 @@ let submitHandler= (e, form, textArea) => {
     spanKiller(div)
     fontReKiller(div)
     
-    // spaceKiller(div)
+    spaceKiller(div)
     textArea.value = div.outerHTML
     .replace(/<div>/g,"")
     .replace(/<\/div>/g,"")
@@ -38,22 +38,12 @@ let submitHandler= (e, form, textArea) => {
 }
 
 spaceKiller = function(div){
-    console.log(div)
-    // for (let i=0;i<data.length;i++){
-    //     if(data[i].innerHTML.replace(/\s/g,'').length<1){
-    //         div.remove(data[i])
-    //         data[i].remove()
-    //     }
-    // }
-    // for (let i=0; )
-    // data.forEach(p=>{ 
-    //             if (p.innerHTML.replace(/\s/g,'').length<1){
+    for (let i=0;i<div.children.length;i++) {
+        if (div.children[i].innerHTML.replace(/\s/g,'').length<1){
+            div.children[i].remove()
+        }
+    }
 
-    //              p.remove()
-    //             }
-    //     }
-    // )
-    // p.innerHTML.includes("a")?console.log("Found A"):console.log("Didn't find A")
 }
 
 spanKiller = function(data){
