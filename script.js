@@ -41,7 +41,7 @@ spaceKiller = function(data,div){
     console.log(data.length)
     for (let i=0;i<data.length;i++){
         if(data[i].innerHTML.replace(/\s/g,'').length<1){
-            div.remove(data[i])
+            data.remove(data[i])
         }
     }
     // for (let i=0; )
