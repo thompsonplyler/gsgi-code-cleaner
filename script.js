@@ -91,6 +91,8 @@ let removeStyles = (data) => {
                 e.removeAttribute('style')
             }
             else if (e.tagName === "IMG"){
+                let imgStyle = e.getAttribute('style')
+                console.log(imgStyle)
                 e.setAttribute("style","display: inline")
             }
             })
