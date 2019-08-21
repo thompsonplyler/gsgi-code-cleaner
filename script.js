@@ -112,11 +112,16 @@ let removeStyles = (data) => {
             else if (e.tagName === "IMG"){
                 if (e.src.includes("banner")){
                     let imgStyle = e.getAttribute('style')
+                    if (imgStyle==null){
+                        e.setAttribute('style',"display: inline")
+                        console.log(e.getAttribute('style'))
+                    }
+                    else {
                     e.setAttribute('style', `${imgStyle}`+"display: inline")
                 }
                 
             }
             
-            })
+            }})
     })}
 }
