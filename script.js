@@ -29,21 +29,22 @@ let submitHandler= (e, form, textArea) => {
     fontKiller(font)
     spanKiller(div)
     fontReKiller(div)
+    
+    // spaceKiller(div)
     textArea.value = div.outerHTML
     .replace(/<div>/g,"")
     .replace(/<\/div>/g,"")
-    p = div.getElementsByTagName("p")
-    spaceKiller(p,div)
 
 }
 
-spaceKiller = function(data,div){
-    console.log(data.length)
-    for (let i=0;i<data.length;i++){
-        if(data[i].innerHTML.replace(/\s/g,'').length<1){
-            data.remove(data[i])
-        }
-    }
+spaceKiller = function(div){
+    console.log(div)
+    // for (let i=0;i<data.length;i++){
+    //     if(data[i].innerHTML.replace(/\s/g,'').length<1){
+    //         div.remove(data[i])
+    //         data[i].remove()
+    //     }
+    // }
     // for (let i=0; )
     // data.forEach(p=>{ 
     //             if (p.innerHTML.replace(/\s/g,'').length<1){
