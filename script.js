@@ -29,11 +29,9 @@ let submitHandler= (e, form, textArea) => {
     fontKiller(font)
     spanKiller(div)
     fontReKiller(div)
-    console.log(textArea)
     textArea.value = div.outerHTML
         .replace(/<div>/g,"")
         .replace(/<\/div>/g,"")
-    console.log(div)
 
 }
 
@@ -92,8 +90,7 @@ let removeStyles = (data) => {
             }
             else if (e.tagName === "IMG"){
                 let imgStyle = e.getAttribute('style')
-                console.log(imgStyle)
-                e.setAttribute("style","display: inline")
+                e.setAttribute('style', `${imgStyle}`+"display: inline")
             }
             })
     })}
