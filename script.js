@@ -30,14 +30,28 @@ let submitHandler= (e, form, textArea) => {
     spanKiller(div)
     fontReKiller(div)
     console.log(textArea)
-    textArea.value = div.outerHTML.replace(/<div>/g,"").replace(/<\/div>/g,"")
+    textArea.value = div.outerHTML
+        .replace(/<div>/g,"")
+        .replace(/<\/div>/g,"")
     console.log(div)
 
 }
 
 spanKiller = function(data){
     let bodyContents = data
-    let cleanedBody = bodyContents.innerHTML.replace(/<span>/g,"").replace(/<\/span>/g,"").replace(/&nbsp;/g," ").replace(/&quot;/g,"'").replace(/<strong><img/g,"<img").replace(/><\/strong>/g,">").replace(/<em><img/g,"<img").replace(/><\/em>/g,">").replace(/&quot;/g,).replace(/&nbsp;/g," ").replace(/<div>/g,"").replace(/<\/div>/g,"")
+    let cleanedBody = bodyContents.innerHTML
+        .replace(/<span>/g,"")
+        .replace(/<\/span>/g,"")
+        .replace(/&nbsp;/g," ")
+        .replace(/&quot;/g,"'")
+        .replace(/<strong><img/g,"<img")
+        .replace(/><\/strong>/g,">")
+        .replace(/<em><img/g,"<img")
+        .replace(/><\/em>/g,">")
+        .replace(/&quot;/g,)
+        .replace(/&nbsp;/g," ")
+        .replace(/<div>/g,"")
+        .replace(/<\/div>/g,"")
     data.innerHTML = cleanedBody
 }   
 
@@ -57,7 +71,9 @@ let fontKiller = (data) =>{
 // fontkiller wasn't getting the job completely done.
 fontReKiller = function(data){
     let bodyContents = data
-    let cleanedBody = bodyContents.innerHTML.replace(/<font color="#000000">/,"").replace(/<\/font>"/,"")
+    let cleanedBody = bodyContents.innerHTML
+        .replace(/<font color="#000000">/,"")
+        .replace(/<\/font>"/,"")
     data.innerHTML = cleanedBody
 
 }
@@ -73,6 +89,9 @@ let removeStyles = (data) => {
             if (e.tagName!=="IMG"){
                 e.removeAttribute('class')
                 e.removeAttribute('style')
+            }
+            else if (e.tagName === "IMG"){
+                e.setAttribute("style","display: inline")
             }
             })
     })}
