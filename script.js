@@ -89,8 +89,13 @@ let removeStyles = (data) => {
                 e.removeAttribute('style')
             }
             else if (e.tagName === "IMG"){
-                let imgStyle = e.getAttribute('style')
-                e.setAttribute('style', `${imgStyle}`+"display: inline")
+                console.log("This is an image I found:",e)
+                if (e.src.includes("banner")){
+                    console.log("This should be a banner:", e.src)
+                    let imgStyle = e.getAttribute('style')
+                    e.setAttribute('style', `${imgStyle}`+"display: inline")
+                }
+                
             }
             })
     })}
