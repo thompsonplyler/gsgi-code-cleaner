@@ -30,9 +30,29 @@ let submitHandler= (e, form, textArea) => {
     spanKiller(div)
     fontReKiller(div)
     textArea.value = div.outerHTML
-        .replace(/<div>/g,"")
-        .replace(/<\/div>/g,"")
+    .replace(/<div>/g,"")
+    .replace(/<\/div>/g,"")
+    p = div.getElementsByTagName("p")
+    spaceKiller(p,div)
 
+}
+
+spaceKiller = function(data,div){
+    console.log(data.length)
+    for (let i=0;i<data.length;i++){
+        if(data[i].innerHTML.replace(/\s/g,'').length<1){
+            div.remove(data[i])
+        }
+    }
+    // for (let i=0; )
+    // data.forEach(p=>{ 
+    //             if (p.innerHTML.replace(/\s/g,'').length<1){
+
+    //              p.remove()
+    //             }
+    //     }
+    // )
+    // p.innerHTML.includes("a")?console.log("Found A"):console.log("Didn't find A")
 }
 
 spanKiller = function(data){
@@ -40,7 +60,7 @@ spanKiller = function(data){
     let cleanedBody = bodyContents.innerHTML
         .replace(/<span>/g,"")
         .replace(/<\/span>/g,"")
-        .replace(/&nbsp;/g," ")
+        .replace(/\s/g," ")
         .replace(/&quot;/g,"'")
         .replace(/<strong><img/g,"<img")
         .replace(/><\/strong>/g,">")
@@ -89,14 +109,13 @@ let removeStyles = (data) => {
                 e.removeAttribute('style')
             }
             else if (e.tagName === "IMG"){
-                console.log("This is an image I found:",e)
                 if (e.src.includes("banner")){
-                    console.log("This should be a banner:", e.src)
                     let imgStyle = e.getAttribute('style')
                     e.setAttribute('style', `${imgStyle}`+"display: inline")
                 }
                 
             }
+            
             })
     })}
 }
